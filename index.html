@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Smart Warranty - Digital Product Warranty Management System. A modern vanilla web dashboard to track warranties and receipts.">
+  <title>Dashboard | Smart Warranty System</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Keyboard Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="app-container">
+    <!-- ====================================================================
+         1. SIDEBAR NAVIGATION COMPONENT (SHARED ACROSS PAGES)
+         ==================================================================== -->
+    <aside class="sidebar" id="sidebar" aria-label="Sidebar Navigation">
+      <div class="sidebar-header">
+        <a href="index.html" class="brand-link">
+          <div class="brand-icon-wrapper">
+            <!-- Shield Check Icon (Inline SVG) -->
+            <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <div class="brand-info">
+            <span class="brand-title">Smart Warranty</span>
+            <span class="brand-subtitle">Digital Product Vault</span>
+          </div>
+        </a>
+        <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close sidebar navigation">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="sidebar-nav" aria-label="Main Navigation">
+        <div>
+          <div class="nav-group-title">Main Menu</div>
+          <ul class="nav-list">
+            <li>
+              <a href="index.html" class="nav-link active" aria-current="page">
+                <!-- Dashboard Grid Icon -->
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a href="pages/warranties.html" class="nav-link">
+                <!-- Archive/Warranties Icon -->
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 8v13H3V8"></path>
+                  <path d="M1 3h22v5H1z"></path>
+                  <path d="M10 12h4"></path>
+                </svg>
+                <span>My Warranties</span>
+                <span class="nav-badge" id="navWarrantyCount">7</span>
+              </a>
+            </li>
+            <li>
+              <a href="pages/add-warranty.html" class="nav-link">
+                <!-- Plus Circle Icon -->
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+                <span>Add Warranty</span>
+              </a>
+            </li>
+            <li>
+              <a href="pages/warranty-details.html" class="nav-link">
+                <!-- File Text / Details Icon -->
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <span>Warranty Details</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="nav-group-title">Preferences</div>
+          <ul class="nav-list">
+            <li>
+              <a href="pages/settings.html" class="nav-link">
+                <!-- Settings / Sliders Icon -->
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+                <span>Settings</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Sidebar Project Info Badge -->
+      <div class="sidebar-footer">
+        <div class="project-meta-card">
+          <div class="project-meta-label">System Status</div>
+          <div class="project-meta-status">
+            <span class="status-dot"></span>
+            <span>Vault Online &bull; v1.0</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Mobile Drawer Backdrop Overlay -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop" aria-hidden="true"></div>
+
+    <!-- ====================================================================
+         2. MAIN WRAPPER (TOP BAR + VIEWPORT CONTENT)
+         ==================================================================== -->
+    <div class="main-wrapper">
+      <!-- Sticky Top Header -->
+      <header class="top-header" role="banner">
+        <div class="header-left">
+          <!-- Mobile Menu Hamburger Button -->
+          <button type="button" class="menu-toggle-btn" id="menuToggleBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="sidebar">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+
+          <!-- Breadcrumb Trail -->
+          <nav class="header-breadcrumb" aria-label="Breadcrumb">
+            <span class="breadcrumb-current">Dashboard</span>
+          </nav>
+        </div>
+
+        <div class="header-right">
+          <!-- Quick Add Button -->
+          <a href="pages/add-warranty.html" class="header-action-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>Quick Add</span>
+          </a>
+
+          <!-- User Identity Pill -->
+          <div class="user-badge" title="Active Mini-Project Workspace">
+            <div class="user-avatar">SW</div>
+            <span class="user-name">Engineering Team</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Viewport Content -->
+      <main class="content-body" id="main-content" role="main">
+        <!-- Page Intro Header -->
+        <section class="page-intro">
+          <div class="page-intro-text">
+            <h1 class="page-title">Warranty Management Dashboard</h1>
+            <p class="page-subtitle">Centralized tracker for product purchases, active guarantees, expiration dates, and proof-of-purchase documents.</p>
+          </div>
+          <div class="page-actions">
+            <a href="pages/add-warranty.html" class="btn btn-primary">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="16"></line>
+                <line x1="8" y1="12" x2="16" y2="12"></line>
+              </svg>
+              <span>Add Warranty</span>
+            </a>
+            <a href="pages/warranties.html" class="btn btn-secondary">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 8v13H3V8"></path>
+                <path d="M1 3h22v5H1z"></path>
+                <path d="M10 12h4"></path>
+              </svg>
+              <span>View All</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             1. DASHBOARD STATISTICS (DYNAMICALLY CALCULATED VIA JAVASCRIPT)
+             ================================================================== -->
+        <section class="metrics-grid" aria-label="Key Performance Metrics">
+          <!-- Total Products -->
+          <article class="metric-card">
+            <div class="metric-data">
+              <span class="metric-label">Total Products</span>
+              <span class="metric-value" id="statTotal">—</span>
+              <span class="metric-note">Cataloged devices</span>
+            </div>
+            <div class="metric-icon-box teal" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+          </article>
+
+          <!-- Active Warranties -->
+          <article class="metric-card">
+            <div class="metric-data">
+              <span class="metric-label">Active Coverage</span>
+              <span class="metric-value" id="statActive">—</span>
+              <span class="metric-note">Under valid guarantee</span>
+            </div>
+            <div class="metric-icon-box green" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+          </article>
+
+          <!-- Expiring Soon -->
+          <article class="metric-card">
+            <div class="metric-data">
+              <span class="metric-label">Expiring Soon</span>
+              <span class="metric-value" id="statExpiring">—</span>
+              <span class="metric-note">Within next 30 days</span>
+            </div>
+            <div class="metric-icon-box amber" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+          </article>
+
+          <!-- Expired Warranties -->
+          <article class="metric-card">
+            <div class="metric-data">
+              <span class="metric-label">Expired</span>
+              <span class="metric-value" id="statExpired">—</span>
+              <span class="metric-note">Coverage lapsed</span>
+            </div>
+            <div class="metric-icon-box red" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="15" y1="9" x2="9" y2="15"></line>
+                <line x1="9" y1="9" x2="15" y2="15"></line>
+              </svg>
+            </div>
+          </article>
+        </section>
+
+        <!-- ==================================================================
+             2. QUICK ACTIONS SECTION
+             ================================================================== -->
+        <section aria-label="Quick Actions">
+          <div class="quick-actions-grid">
+            <a href="pages/add-warranty.html" class="quick-action-card primary">
+              <div class="quick-action-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+              </div>
+              <div class="quick-action-info">
+                <span class="quick-action-title">Add New Warranty</span>
+                <span class="quick-action-desc">Register a device &amp; set expiration terms</span>
+              </div>
+            </a>
+
+            <a href="pages/warranties.html" class="quick-action-card">
+              <div class="quick-action-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 8v13H3V8"></path>
+                  <path d="M1 3h22v5H1z"></path>
+                  <path d="M10 12h4"></path>
+                </svg>
+              </div>
+              <div class="quick-action-info">
+                <span class="quick-action-title">Browse Warranties</span>
+                <span class="quick-action-desc">Search, filter &amp; inspect catalog records</span>
+              </div>
+            </a>
+
+            <a href="pages/warranty-details.html" class="quick-action-card">
+              <div class="quick-action-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+              <div class="quick-action-info">
+                <span class="quick-action-title">Warranty Details</span>
+                <span class="quick-action-desc">View coverage specs &amp; claim hotline info</span>
+              </div>
+            </a>
+
+            <a href="pages/settings.html" class="quick-action-card">
+              <div class="quick-action-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+              </div>
+              <div class="quick-action-info">
+                <span class="quick-action-title">System Settings</span>
+                <span class="quick-action-desc">Expiration thresholds &amp; data preferences</span>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             3. MAIN DASHBOARD SPLIT: RECENT PRODUCTS & UPCOMING EXPIRATIONS
+             ================================================================== -->
+        <div class="dashboard-split-grid">
+          <!-- Left Column: Recently Added Products Table -->
+          <section class="card" aria-label="Recently Added Products">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Recently Added Products</h2>
+                <span style="font-size: var(--font-size-xs); color: var(--color-text-muted);">Sorted by recent registration date</span>
+              </div>
+              <a href="pages/warranties.html" class="btn btn-secondary" style="font-size: var(--font-size-xs); padding: 4px 10px;">
+                <span>View All</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </a>
+            </div>
+
+            <div class="card-body" style="padding: 0;">
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Product Item</th>
+                      <th scope="col">Category &amp; Brand</th>
+                      <th scope="col">Purchase Date</th>
+                      <th scope="col">Expiry Date</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recentProductsTableBody">
+                    <!-- Populated dynamically via JavaScript (renderRecentProductsTable) -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- Right Column: Upcoming Expirations -->
+          <section class="card" aria-label="Upcoming Expirations">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Upcoming Expirations</h2>
+                <span style="font-size: var(--font-size-xs); color: var(--color-text-muted);">Sorted by nearest expiration date</span>
+              </div>
+              <span class="badge badge-expiring">Urgent First</span>
+            </div>
+
+            <div class="card-body" style="padding: 0;">
+              <div class="upcoming-list" id="upcomingExpirationsList">
+                <!-- Populated dynamically via JavaScript (renderUpcomingExpirations) -->
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ==================================================================
+             4. PRODUCT CATEGORIES BREAKDOWN SECTION
+             ================================================================== -->
+        <section class="card" aria-label="Product Categories Breakdown">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Product Categories Summary</h2>
+              <span style="font-size: var(--font-size-xs); color: var(--color-text-muted);">Overview of device categories and current coverage health</span>
+            </div>
+            <a href="pages/warranties.html" class="btn btn-secondary" style="font-size: var(--font-size-xs); padding: 4px 10px;">Filter Vault</a>
+          </div>
+
+          <div class="card-body">
+            <div class="category-grid" id="categorySummaryGrid">
+              <!-- Populated dynamically via JavaScript (renderCategorySummary) -->
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Standard Page Footer -->
+      <footer class="app-footer" role="contentinfo">
+        <div class="footer-credits">
+          <strong>Smart Warranty System</strong> — Engineering Mini-Project
+        </div>
+        <div>
+          <span>Designed with Vanilla HTML5, CSS3 &amp; ES6 JavaScript</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="js/app.js"></script>
+</body>
+</html>

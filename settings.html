@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Settings - Configure notification preferences and review mini-project metadata.">
+  <title>Settings | Smart Warranty System</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Keyboard Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="app-container">
+    <!-- ====================================================================
+         1. SIDEBAR NAVIGATION COMPONENT
+         ==================================================================== -->
+    <aside class="sidebar" id="sidebar" aria-label="Sidebar Navigation">
+      <div class="sidebar-header">
+        <a href="../index.html" class="brand-link">
+          <div class="brand-icon-wrapper">
+            <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <div class="brand-info">
+            <span class="brand-title">Smart Warranty</span>
+            <span class="brand-subtitle">Digital Product Vault</span>
+          </div>
+        </a>
+        <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close sidebar navigation">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Main Navigation">
+        <div>
+          <div class="nav-group-title">Main Menu</div>
+          <ul class="nav-list">
+            <li>
+              <a href="../index.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a href="warranties.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 8v13H3V8"></path>
+                  <path d="M1 3h22v5H1z"></path>
+                  <path d="M10 12h4"></path>
+                </svg>
+                <span>My Warranties</span>
+                <span class="nav-badge" id="navWarrantyCount">7</span>
+              </a>
+            </li>
+            <li>
+              <a href="add-warranty.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+                <span>Add Warranty</span>
+              </a>
+            </li>
+            <li>
+              <a href="warranty-details.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <span>Warranty Details</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="nav-group-title">Preferences</div>
+          <ul class="nav-list">
+            <li>
+              <a href="settings.html" class="nav-link active" aria-current="page">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+                <span>Settings</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="project-meta-card">
+          <div class="project-meta-label">System Status</div>
+          <div class="project-meta-status">
+            <span class="status-dot"></span>
+            <span>Vault Online &bull; v1.0</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop" aria-hidden="true"></div>
+
+    <!-- ====================================================================
+         2. MAIN WRAPPER (TOP BAR + VIEWPORT CONTENT)
+         ==================================================================== -->
+    <div class="main-wrapper">
+      <header class="top-header" role="banner">
+        <div class="header-left">
+          <button type="button" class="menu-toggle-btn" id="menuToggleBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="sidebar">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+
+          <nav class="header-breadcrumb" aria-label="Breadcrumb">
+            <a href="../index.html">Dashboard</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Settings</span>
+          </nav>
+        </div>
+
+        <div class="header-right">
+          <div class="user-badge" title="Active Mini-Project Workspace">
+            <div class="user-avatar">SW</div>
+            <span class="user-name">Engineering Team</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="content-body" id="main-content" role="main">
+        <section class="page-intro">
+          <div class="page-intro-text">
+            <h1 class="page-title">Application Settings</h1>
+            <p class="page-subtitle">Configure warranty expiration thresholds, inspect browser storage, and review viva project architecture.</p>
+          </div>
+        </section>
+
+        <div style="display: flex; flex-direction: column; gap: var(--space-6); max-width: 900px;">
+          <!-- Notification & Alert Settings -->
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Alert &amp; Expiration Preferences</h2>
+              <span class="badge badge-neutral">Preferences</span>
+            </div>
+            <div class="card-body">
+              <div style="display: flex; flex-direction: column; gap: var(--space-5);">
+                <div class="form-group">
+                  <label for="expiryThreshold" class="form-label">Warranty Expiry Alert Window</label>
+                  <select id="expiryThreshold" class="form-control" style="max-width: 320px;">
+                    <option value="15">15 days before expiration</option>
+                    <option value="30" selected>30 days before expiration (Recommended)</option>
+                    <option value="60">60 days before expiration</option>
+                    <option value="90">90 days before expiration</option>
+                  </select>
+                  <span class="form-help">Items expiring within this window will be flagged as "Expiring Soon" with amber badges.</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="dateFormat" class="form-label">Preferred Date Format</label>
+                  <select id="dateFormat" class="form-control" style="max-width: 320px;">
+                    <option value="DD-MMM-YYYY" selected>DD MMM YYYY (e.g. 15 Jan 2024)</option>
+                    <option value="YYYY-MM-DD">YYYY-MM-DD (ISO Format)</option>
+                    <option value="MM/DD/YYYY">MM/DD/YYYY (US Format)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data Storage & Management Card -->
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Client-Side Storage Management</h2>
+              <span class="badge badge-neutral">LocalStorage &amp; IndexedDB</span>
+            </div>
+            <div class="card-body">
+              <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--space-4);">
+                In accordance with project restrictions, Smart Warranty uses the browser's native <strong>HTML5 LocalStorage API</strong> for structured records and <strong>IndexedDB</strong> for bill attachment files. No database or cloud servers are used.
+              </p>
+
+              <div id="settingsAlert" class="alert alert-success" style="display: none;" role="alert">
+                <span id="settingsAlertText">Operation completed successfully.</span>
+              </div>
+
+              <div style="display: flex; gap: var(--space-3); flex-wrap: wrap;">
+                <button type="button" class="btn btn-secondary" id="exportDataBtn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  <span>Export Warranty Data (JSON)</span>
+                </button>
+
+                <button type="button" class="btn btn-secondary" id="importDataBtn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                  </svg>
+                  <span>Import Records (JSON)</span>
+                </button>
+                <input type="file" id="importFileInput" accept=".json" style="display: none;">
+
+                <button type="button" class="btn btn-secondary" id="resetDemoBtn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="1 4 1 10 7 10"></polyline>
+                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                  </svg>
+                  <span>Reset Demo Storage</span>
+                </button>
+
+                <button type="button" class="btn btn-danger-subtle" id="clearAllDataBtn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6"></polyline>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  </svg>
+                  <span>Clear All Records</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Academic & Viva Project Details Card -->
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Mini-Project Architecture &amp; Viva Documentation</h2>
+              <span class="badge badge-active">Active Viva Guide</span>
+            </div>
+            <div class="card-body">
+              <dl style="display: flex; flex-direction: column; gap: var(--space-4);">
+                <div>
+                  <dt style="font-size: var(--font-size-xs); color: var(--color-text-muted); text-transform: uppercase; font-weight: var(--font-weight-semibold);">Project Title</dt>
+                  <dd style="font-size: var(--font-size-sm); color: var(--color-text-primary); font-weight: var(--font-weight-medium); margin-top: 2px;">Smart Warranty — Digital Product Warranty Management System</dd>
+                </div>
+                <div>
+                  <dt style="font-size: var(--font-size-xs); color: var(--color-text-muted); text-transform: uppercase; font-weight: var(--font-weight-semibold);">Technology Constraint Compliance</dt>
+                  <dd style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-top: 2px;">
+                    100% Vanilla Stack (HTML5 + CSS3 + ES6 Vanilla JavaScript). Strictly zero npm dependencies, zero UI frameworks (no Tailwind, Bootstrap, React, or Vue), zero backend servers or databases.
+                  </dd>
+                </div>
+                <div>
+                  <dt style="font-size: var(--font-size-xs); color: var(--color-text-muted); text-transform: uppercase; font-weight: var(--font-weight-semibold);">Engineering Team Viva Roles</dt>
+                  <dd style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-top: 2px;">
+                    Three student collaborative team: 1) System Architecture &amp; Semantic HTML Layout, 2) Responsive CSS Design System &amp; Tokens, 3) Client-Side DOM &amp; Navigation Routing Logic.
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="app-footer" role="contentinfo">
+        <div class="footer-credits">
+          <strong>Smart Warranty System</strong> — Engineering Mini-Project
+        </div>
+        <div>
+          <span>Designed with Vanilla HTML5, CSS3 &amp; ES6 JavaScript</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Settings Confirmation Modal Component -->
+  <div class="modal-backdrop" id="settingsConfirmModal" role="dialog" aria-modal="true" aria-labelledby="settingsModalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="settingsModalTitle">Confirm Storage Action</h3>
+        <button type="button" class="btn" id="closeSettingsModalBtn" aria-label="Close dialog">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="settingsModalMessage">Are you sure you want to proceed?</p>
+        <p id="settingsModalSubMessage" style="margin-top: var(--space-2); font-size: var(--font-size-xs); color: var(--color-danger);">
+          This action will modify your locally stored browser records.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="cancelSettingsModalBtn">Cancel</button>
+        <button type="button" class="btn btn-primary" id="confirmSettingsModalBtn">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

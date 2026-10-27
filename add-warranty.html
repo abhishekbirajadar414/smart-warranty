@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Add or Edit Warranty - Register product purchase details and calculate expiration.">
+  <title>Add Warranty | Smart Warranty System</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Keyboard Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="app-container">
+    <!-- ====================================================================
+         1. SIDEBAR NAVIGATION COMPONENT
+         ==================================================================== -->
+    <aside class="sidebar" id="sidebar" aria-label="Sidebar Navigation">
+      <div class="sidebar-header">
+        <a href="../index.html" class="brand-link">
+          <div class="brand-icon-wrapper">
+            <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <div class="brand-info">
+            <span class="brand-title">Smart Warranty</span>
+            <span class="brand-subtitle">Digital Product Vault</span>
+          </div>
+        </a>
+        <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close sidebar navigation">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Main Navigation">
+        <div>
+          <div class="nav-group-title">Main Menu</div>
+          <ul class="nav-list">
+            <li>
+              <a href="../index.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a href="warranties.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 8v13H3V8"></path>
+                  <path d="M1 3h22v5H1z"></path>
+                  <path d="M10 12h4"></path>
+                </svg>
+                <span>My Warranties</span>
+                <span class="nav-badge" id="navWarrantyCount">7</span>
+              </a>
+            </li>
+            <li>
+              <a href="add-warranty.html" class="nav-link active" aria-current="page">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+                <span>Add Warranty</span>
+              </a>
+            </li>
+            <li>
+              <a href="warranty-details.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <span>Warranty Details</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="nav-group-title">Preferences</div>
+          <ul class="nav-list">
+            <li>
+              <a href="settings.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+                <span>Settings</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="project-meta-card">
+          <div class="project-meta-label">System Status</div>
+          <div class="project-meta-status">
+            <span class="status-dot"></span>
+            <span>Vault Online &bull; v1.0</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop" aria-hidden="true"></div>
+
+    <!-- ====================================================================
+         2. MAIN WRAPPER (TOP BAR + VIEWPORT CONTENT)
+         ==================================================================== -->
+    <div class="main-wrapper">
+      <header class="top-header" role="banner">
+        <div class="header-left">
+          <button type="button" class="menu-toggle-btn" id="menuToggleBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="sidebar">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+
+          <nav class="header-breadcrumb" aria-label="Breadcrumb">
+            <a href="../index.html">Dashboard</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="warranties.html">Warranties</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current" id="addWarrantyBreadcrumb">Add Warranty</span>
+          </nav>
+        </div>
+
+        <div class="header-right">
+          <a href="warranties.html" class="header-action-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 8v13H3V8"></path>
+              <path d="M1 3h22v5H1z"></path>
+              <path d="M10 12h4"></path>
+            </svg>
+            <span>View All Warranties</span>
+          </a>
+
+          <div class="user-badge" title="Active Mini-Project Workspace">
+            <div class="user-avatar">SW</div>
+            <span class="user-name">Engineering Team</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="content-body" id="main-content" role="main">
+        <section class="page-intro">
+          <div class="page-intro-text">
+            <h1 class="page-title" id="addWarrantyPageTitle">Register Product Warranty</h1>
+            <p class="page-subtitle">Enter device specifications, warranty duration, and purchase details. Expiry is calculated automatically.</p>
+          </div>
+        </section>
+
+        <!-- Success Notification Banner -->
+        <div id="formSuccessAlert" class="alert alert-success" style="display: none;" role="alert">
+          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <div>
+            <strong>Warranty Saved Successfully!</strong>
+            <p style="margin-top: 2px; font-size: var(--font-size-xs);">Your warranty record has been registered. Redirecting to My Warranties...</p>
+          </div>
+        </div>
+
+        <!-- Add Warranty Form Card -->
+        <div class="card" style="max-width: 900px;">
+          <div class="card-header">
+            <h2 class="card-title">Product &amp; Warranty Specifications</h2>
+            <span class="badge badge-neutral">Required Fields Mark (*)</span>
+          </div>
+
+          <form id="warrantyForm" class="card-body" novalidate>
+            <div class="form-grid">
+              <!-- 1. Product Name -->
+              <div class="form-group">
+                <label for="productName" class="form-label">
+                  Product Name <span class="required">*</span>
+                </label>
+                <input type="text" id="productName" name="productName" class="form-control" placeholder="e.g. Dell XPS 15 Laptop" required>
+                <span class="form-help">Enter full brand and model description.</span>
+                <div class="form-error" id="error-productName">Product name is required (minimum 2 characters).</div>
+              </div>
+
+              <!-- 2. Brand / Manufacturer -->
+              <div class="form-group">
+                <label for="brand" class="form-label">
+                  Brand / Manufacturer <span class="required">*</span>
+                </label>
+                <input type="text" id="brand" name="brand" class="form-control" placeholder="e.g. Apple, Sony, Samsung, Dell" required>
+                <span class="form-help">Manufacturer or official brand name.</span>
+                <div class="form-error" id="error-brand">Brand name is required.</div>
+              </div>
+
+              <!-- 3. Category -->
+              <div class="form-group">
+                <label for="category" class="form-label">
+                  Product Category <span class="required">*</span>
+                </label>
+                <select id="category" name="category" class="form-control" required>
+                  <option value="">Select a category</option>
+                  <option value="Electronics">Electronics</option>
+                  <option value="Smartphone">Smartphone</option>
+                  <option value="Home Appliances">Home Appliances</option>
+                  <option value="Audio Equipment">Audio Equipment</option>
+                  <option value="Accessories & Wearables">Accessories &amp; Wearables</option>
+                  <option value="Other">Other</option>
+                </select>
+                <span class="form-help">Primary equipment classification.</span>
+                <div class="form-error" id="error-category">Please select a valid product category.</div>
+              </div>
+
+              <!-- 4. Serial Number (Optional) -->
+              <div class="form-group">
+                <label for="serialNumber" class="form-label">Serial / IMEI Number</label>
+                <input type="text" id="serialNumber" name="serialNumber" class="form-control" placeholder="e.g. SN-8923-441-A">
+                <span class="form-help">Helpful for official warranty claims (optional).</span>
+              </div>
+
+              <!-- 5. Purchase Date -->
+              <div class="form-group">
+                <label for="purchaseDate" class="form-label">
+                  Purchase Date <span class="required">*</span>
+                </label>
+                <input type="date" id="purchaseDate" name="purchaseDate" class="form-control" required>
+                <span class="form-help">Invoice or billing date.</span>
+                <div class="form-error" id="error-purchaseDate">Please select a valid purchase date.</div>
+              </div>
+
+              <!-- 6. Purchase Price in INR -->
+              <div class="form-group">
+                <label for="purchasePrice" class="form-label">
+                  Purchase Price (₹ INR) <span class="required">*</span>
+                </label>
+                <input type="number" id="purchasePrice" name="purchasePrice" class="form-control" placeholder="e.g. 45000" min="0" step="1" required>
+                <span class="form-help">Total amount paid in Indian Rupees (nonnegative).</span>
+                <div class="form-error" id="error-purchasePrice">Purchase price is required and must be a nonnegative amount.</div>
+              </div>
+
+              <!-- 7. Warranty Duration & Unit -->
+              <div class="form-group full-width">
+                <label for="warrantyDuration" class="form-label">
+                  Warranty Duration &amp; Unit <span class="required">*</span>
+                </label>
+                <div style="display: flex; gap: var(--space-2); max-width: 440px;">
+                  <input type="number" id="warrantyDuration" name="warrantyDuration" class="form-control" min="1" max="120" value="12" style="flex: 2;" required>
+                  <select id="warrantyUnit" name="warrantyUnit" class="form-control" style="flex: 1;" required>
+                    <option value="months" selected>Months</option>
+                    <option value="years">Years</option>
+                  </select>
+                </div>
+                <span class="form-help">Standard duration is typically 12 or 24 months.</span>
+                <div class="form-error" id="error-warrantyDuration">Please enter a valid positive duration number.</div>
+              </div>
+
+              <!-- 8. Calculated Expiry Date Preview Box -->
+              <div class="form-group full-width">
+                <label class="form-label">Automated Expiry Date Calculation</label>
+                <div class="expiry-preview-card" id="expiryPreviewCard">
+                  <div class="expiry-preview-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                  </div>
+                  <div class="expiry-preview-text">
+                    <span class="expiry-preview-label">Calculated Expiry Date</span>
+                    <div class="expiry-preview-value" id="expiryPreviewValue">
+                      <span>Please enter purchase date and warranty duration to calculate expiry.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 9. Proof of Purchase Attachment (Optional) -->
+              <div class="form-group full-width">
+                <label class="form-label">Purchase Bill / Invoice Attachment (Optional)</label>
+                
+                <!-- Dropzone (shown when no file is selected) -->
+                <div class="upload-dropzone" id="uploadDropzone" tabindex="0" role="button" aria-label="Upload invoice bill or receipt">
+                  <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                  </svg>
+                  <div class="upload-text">Click to browse or drag &amp; drop purchase bill</div>
+                  <div class="upload-hint">Supported formats: JPG, PNG, WebP image or PDF document (Max 5MB)</div>
+                  <input type="file" id="invoiceFile" name="invoiceFile" accept=".pdf,image/png,image/jpeg,image/webp" style="display: none;">
+                </div>
+
+                <!-- Attachment Active Preview Card -->
+                <div class="attachment-preview-card" id="attachmentPreviewCard" style="display: none;">
+                  <div class="attachment-preview-left">
+                    <div id="attachmentIconBox" class="attachment-icon-box">
+                      <!-- Rendered dynamically: img thumbnail or PDF icon -->
+                    </div>
+                    <div class="attachment-info">
+                      <div class="attachment-name" id="attachmentPreviewName">invoice.pdf</div>
+                      <div class="attachment-meta" id="attachmentPreviewMeta">PDF Document &bull; 420 KB</div>
+                    </div>
+                  </div>
+                  <div class="attachment-actions">
+                    <button type="button" class="btn btn-secondary" id="replaceAttachmentBtn" style="padding: 4px 10px; font-size: 0.75rem;">Replace</button>
+                    <button type="button" class="btn btn-danger-subtle" id="removeAttachmentBtn" style="padding: 4px 10px; font-size: 0.75rem;">Remove</button>
+                  </div>
+                </div>
+
+                <div class="form-error" id="error-invoiceFile">Please select a valid image or PDF file under 5MB.</div>
+              </div>
+
+              <!-- 10. Additional Notes (Optional) -->
+              <div class="form-group full-width">
+                <label for="notes" class="form-label">Warranty Notes &amp; Claim Terms (Optional)</label>
+                <textarea id="notes" name="notes" class="form-control" rows="3" placeholder="Notes regarding extended warranty terms, store name, customer care hotline numbers, or special clauses..."></textarea>
+                <span class="form-help">Any additional remarks or coverage conditions.</span>
+              </div>
+            </div>
+
+            <!-- Form Action Buttons -->
+            <div style="margin-top: var(--space-6); display: flex; align-items: center; justify-content: flex-end; gap: var(--space-3);">
+              <a href="warranties.html" class="btn btn-secondary" id="cancelBtn">Cancel</a>
+              <button type="submit" class="btn btn-primary" id="saveWarrantyBtn">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                  <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                  <polyline points="7 3 7 8 15 8"></polyline>
+                </svg>
+                <span id="saveBtnText">Save Warranty Record</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </main>
+
+      <footer class="app-footer" role="contentinfo">
+        <div class="footer-credits">
+          <strong>Smart Warranty System</strong> — Engineering Mini-Project
+        </div>
+        <div>
+          <span>Designed with Vanilla HTML5, CSS3 &amp; ES6 JavaScript</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>
